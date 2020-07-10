@@ -14,18 +14,19 @@
       <div class="container">
       <ul class="navbar-nav mr-auto">
          <li class="nav-item">
-            <p>Sciver</p>
+            <h2 style="color:white">Scivers.com</h2>  
           </li>
         
       </ul>
         <% if user_signed_in? %>
-          <ul class="navbar-nav mr-auto">            
+          <ul class="navbar-nav mr-auto">
+           <li class="nav-item">
+            <%= link_to "Home", videos_path, class: 'nav-link' %>
+          </li>             
           <li class="nav-item">
             <%= link_to "Photos", images_path, class: 'nav-link' %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Videos", videos_path, class: 'nav-link' %>
-          </li> 
+         
           
           <li class="nav-item">
             <%= link_to "Post image", upload_path, class: 'nav-link' %>
