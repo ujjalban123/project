@@ -1,0 +1,7 @@
+<% @users.each do |user| %>
+<div>
+<h3>
+<%= link_to user.full_name, profile_path(user.username)%>
+</h3>
+</div>
+<% end %>

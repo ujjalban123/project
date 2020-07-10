@@ -1,0 +1,56 @@
+<link rel="stylesheet" type="text/css" href="assets/stylesheet/image.scss">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ <div class="container">
+   <div class="row">
+   	<div class="col-5">
+  <% @image.each do |image| %>
+      <div class="bg-muted"><%= link_to image.user.full_name, profile_path(image.user.username) %></div>
+        <%= image_tag image.image, class: "img img-fluid" %>
+          <% if user_signed_in? %>
+           <% if current_user.liked? image %>
+                <%= button_to "Dislike", dislike_image_path(image), class: 'vote', method: :put, remote: true, data: { toggle_text: 'Like', toggle_href: like_image_path(image), id: image.id } %>
+          <% else %>
+                <%= button_to "Like", like_image_path(image), class: 'vote', method: :put, remote: true, data: { toggle_text: 'Dislike', toggle_href: dislike_image_path(image), id: image.id } %>
+           <% end %>
+        <% end %>
+           <p> <span class="votes-count" data-id="<%= image.id %>">
+           	   <%= image.get_likes.size %> likes </p>
+           	 </span>  
+       <br>     
+            <p><%= image.description %></p>
+         	<p><%= time_ago_in_words image.created_at %> ago</p>         	
+       	    <% end %>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+  
+$(document).on 'ajax:success', 'a.vote', (status,data,xhr)->
+  
+  $(".votes-count[data-id=#{data.id}]").text data.count
+  return
+
+  $(document).on 'ajax:success', 'a.vote', (status,data,xhr)->
+  
+  $(".votes-count[data-id=#{data.id}]").text data.count
+
+
+  $("a.vote[data-id=#{data.id}]").each ->
+    $a = $(this)
+    href = $a.attr 'href'
+    text = $a.text()
+    $a.text($a.data('toggle-text')).attr 'href', $a.data('toggle-href')
+    $a.data('toggle-text', text).data 'toggle-href', href
+    return
+
+  return
+
+</script>
+

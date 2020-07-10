@@ -1,0 +1,24 @@
+<link rel="stylesheet" type="text/css" href="assets/stylesheet/video.scss">
+ <div class="container">
+   <div class="row">
+    <div class="col-2">
+  <% @video.each do |video| %>
+         <div class="bg-muted"><%= link_to video.user.full_name, profile_path(video.user.username) %></div>
+        <%= video_tag url_for(video.clip), style:'width:10px,height:50%',controls:'' %> 
+        <% if user_signed_in? %>
+           <% if current_user.liked? video %>
+                <%= button_to "Dislike", dislike_video_path(video), class: 'vote', method: :put, remote: true, data: { toggle_text: 'Like', toggle_href: like_video_path(video), id: video.id } %>
+          <% else %>
+                <%= button_to "Like", like_video_path(video), class: 'vote', method: :put, remote: true, data: { toggle_text: 'Dislike', toggle_href: dislike_video_path(video), id: video.id } %>
+           <% end %>
+        <% end %>
+           <p> <span class="votes-count" data-id="<%= video.id %>">
+           	   <%= video.get_likes.size %> likes </p>
+           	 </span>  
+       <br>     
+        <p><%= video.description %></p>
+          <p><%= time_ago_in_words video.created_at %> ago</p>          
+            <% end %>
+</div>
+</div>
+</div>

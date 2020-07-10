@@ -1,0 +1,20 @@
+<<h2>Videos</h2>
+<link rel="stylesheet" type="text/css" href="assets/stylesheet/application.css">
+<div class="row">
+  <div class="col-md-9">
+    <div class="card">
+      <div class="card-body p-2">
+        <%= video_tag url_for(@video.clip), class: 'd-block w-100' %>
+      </div>
+    </div>
+  </div>
+ <%= link_to @video.user.full_name, profile_path(@video.user.username) %>
+
+    <p class="border-top mt-3 py-2">
+      <% if @video.description.present? %>
+        <%= @video.description %> -
+      <% end %>
+      <span class="text-muted"><%= time_ago_in_words @video.created_at %> ago</span>
+    </p>
+  </div>
+</div>
