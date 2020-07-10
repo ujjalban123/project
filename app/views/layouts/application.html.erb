@@ -8,7 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+<meta charset="utf-8" name="viewport" content= "width=device-width, initial-scale=1.0">
   <body>
     <div class="navbar navbar-expand-lg bg-dark navbar-dark mb-3">
       <div class="container">
@@ -19,14 +19,13 @@
         
       </ul>
         <% if user_signed_in? %>
-          <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <%= link_to "Home", videos_path, class: 'nav-link' %>
-          </li>  
+          <ul class="navbar-nav mr-auto">            
           <li class="nav-item">
             <%= link_to "Photos", images_path, class: 'nav-link' %>
           </li>
-          
+          <li class="nav-item">
+            <%= link_to "Videos", videos_path, class: 'nav-link' %>
+          </li> 
           
           <li class="nav-item">
             <%= link_to "Post image", upload_path, class: 'nav-link' %>

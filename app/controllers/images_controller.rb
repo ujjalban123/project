@@ -1,6 +1,7 @@
 class ImagesController < ApplicationController
   def index
     @image= Image.where(user_id: current_user.all_following.pluck(:id))
+    @images=current_user.posts.order(created_at: :desc)
   end
 
   def show
