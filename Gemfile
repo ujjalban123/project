@@ -30,6 +30,8 @@ gem 'bootstrap-sass'
 
 gem 'execjs'
 
+
+
 gem "acts_as_follower", github: "tcocca/acts_as_follower"
 
 gem 'acts_as_votable', '~> 0.12.1'
@@ -72,13 +74,6 @@ group :development do
 
 end
 
-group :production do
-
- gem 'pg', '~> 1.2', '>= 1.2.3'
-
- gem 'rails_12factor', '~> 0.0.3'
-
-end
 
 
 
@@ -92,8 +87,7 @@ gem 'image_processing', '~> 1.10', '>= 1.10.2'
 
 gem 'webpacker'
 
-gem 'active_storage_drag_and_drop'
+gem 'active_storage_drag_and_drop', '~> 1.1'
 
 gem 'active_storage_validations'
-
 

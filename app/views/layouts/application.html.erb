@@ -7,31 +7,34 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 <meta charset="utf-8" name="viewport" content= "width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
   <body>
-    <div class="navbar navbar-expand-lg bg-dark navbar-dark mb-3">
-      <div class="container">
-      <ul class="navbar-nav mr-auto">
-         <li class="nav-item">
-            <h2 style="color:white">Scivers.com</h2>  
-          </li>
-        
-      </ul>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark"> 
+    <a class="navbar-brand" href="#">Sciver</a> 
+     <div class="navbar-header">
+       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_navbar" aria-expanded="false" >
+          <span class="navbar-toggler-icon"></span>
+       </button>
+    
+   </div>
+
+     <div class="collapse navbar-collapse" id="main_navbar">
         <% if user_signed_in? %>
-          <ul class="navbar-nav mr-auto">
-           <li class="nav-item">
+          <ul class="nav  navbar-nav">
+           <li>
             <%= link_to "Home", videos_path, class: 'nav-link' %>
           </li>             
-          <li class="nav-item">
+          <li>
             <%= link_to "Photos", images_path, class: 'nav-link' %>
           </li>
-         
-          
-          <li class="nav-item">
+          <li>
             <%= link_to "Post image", upload_path, class: 'nav-link' %>
           </li>
-          <li class="nav-item">
+          <li>
             <%= link_to "Post video", new_video_path, class: 'nav-link' %>
           </li>
          </ul>    
@@ -40,36 +43,40 @@
            <%= submit_tag "Search",class: "btn btn-primary" %> 
             <% end %>
 
-            <ul class="navbar-nav">
-              <li class="nav-item">
+             <ul class="nav navbar-nav navbar-right">
+              <li>
                 <%= link_to "Your account", profile_path(current_user.username), class: 'nav-link' %>
               </li>
-              <li class="nav-item">
+              <li>
                 <%= link_to "Log Out", destroy_user_session_path, class: 'nav-link', method: :delete %>
               </li>
-             <li class="nav-item">
+             <li>
                 <%= link_to "Edit account", edit_user_registration_path, class: 'nav-link' %>
             </li>
-              <li class="nav-item">
+              <li>
                       <%= link_to "About Us", home_path, class: 'nav-link' %>
               </li>  
           </ul>
+         </div>
+         
 
-          <% else %>
-            <ul class="navbar-nav">
-              <li class="nav-item">
+
+          <% else %>        
+            <ul class="nav navbar-nav navbar-right">
+              <li>
                 <%= link_to "Sign In", new_user_session_path, class: 'nav-link',style:"color: white" %>
               </li>
-              <li class="nav-item">
+              <li>
                 <%= link_to "Create an Account", new_user_registration_path, class: 'btn btn-primary' %>
               </li>
-               <li class="nav-item">
+               <li>
                   <%= link_to "About Us", home_path, class: 'nav-link',style:"color: white" %>
                 </li>  
               </ul>
             <% end %>
-      </div>
-    </div>
+         </nav>
+         
+      
 
     <div class="container">
       <%= yield %>
