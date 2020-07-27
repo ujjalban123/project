@@ -17,6 +17,8 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -54,6 +56,8 @@ gem 'mini_magick', '~> 4.8'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'yarn', '~> 0.1.1'
+
 
 
 group :development do
@@ -71,6 +75,14 @@ group :development do
   gem 'byebug'
 
   gem 'bindex', '~> 0.8.1'
+
+end
+
+group :production do
+
+    gem 'pg', '~> 1.2', '>= 1.2.3'
+
+	gem 'rails_12factor', '~> 0.0.3'
 
 end
 
