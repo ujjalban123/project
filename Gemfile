@@ -30,6 +30,7 @@ gem 'bootstrap-sass'
 
 gem 'execjs'
 
+gem 'sprockets', '~> 3.5', '>= 3.5.2'
 
 
 gem "acts_as_follower", github: "tcocca/acts_as_follower"
@@ -38,7 +39,6 @@ gem 'acts_as_votable', '~> 0.12.1'
 
 gem 'searchkick', '~> 4.2', '>= 4.2.1'
 
-gem 'elasticsearch', '~> 7.8'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

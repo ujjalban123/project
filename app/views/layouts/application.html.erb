@@ -11,9 +11,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="http://twitter.github.io/bootstrap/assets/js/bootstrap-transition.js"></script>
+<script type="text/javascript" src="http://twitter.github.io/bootstrap/assets/js/bootstrap-collapse.js"></script>
 </head>
   <body>
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark"> 
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark" id="navbar" style="width:100%"> 
     <a class="navbar-brand" href="#">Sciver</a> 
      <div class="navbar-header">
        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_navbar" aria-expanded="false" >
@@ -25,16 +27,16 @@
      <div class="collapse navbar-collapse" id="main_navbar">
         <% if user_signed_in? %>
           <ul class="nav  navbar-nav">
-           <li>
+           <li class="nav-item">
             <%= link_to "Home", videos_path, class: 'nav-link' %>
           </li>             
           <li>
             <%= link_to "Photos", images_path, class: 'nav-link' %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to "Post image", upload_path, class: 'nav-link' %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to "Post video", new_video_path, class: 'nav-link' %>
           </li>
          </ul>    
@@ -44,16 +46,16 @@
             <% end %>
 
              <ul class="nav navbar-nav navbar-right">
-              <li>
+              <li class="nav-item">
                 <%= link_to "Your account", profile_path(current_user.username), class: 'nav-link' %>
               </li>
-              <li>
+              <li class="nav-item">
                 <%= link_to "Log Out", destroy_user_session_path, class: 'nav-link', method: :delete %>
               </li>
-             <li>
+             <li class="nav-item">
                 <%= link_to "Edit account", edit_user_registration_path, class: 'nav-link' %>
             </li>
-              <li>
+              <li class="nav-item">
                       <%= link_to "About Us", home_path, class: 'nav-link' %>
               </li>  
           </ul>
@@ -63,13 +65,13 @@
 
           <% else %>        
             <ul class="nav navbar-nav navbar-right">
-              <li>
+              <li class="nav-item">
                 <%= link_to "Sign In", new_user_session_path, class: 'nav-link',style:"color: white" %>
               </li>
-              <li>
+              <li class="nav-item">
                 <%= link_to "Create an Account", new_user_registration_path, class: 'btn btn-primary' %>
               </li>
-               <li>
+               <li class="nav-item">
                   <%= link_to "About Us", home_path, class: 'nav-link',style:"color: white" %>
                 </li>  
               </ul>

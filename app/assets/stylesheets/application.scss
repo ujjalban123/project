@@ -1,6 +1,8 @@
 @import "bootstrap";
 @import "active_storage_drag_and_drop";
 
+
+
 .asdndzone {
   background: #f2f2f2;
   border-radius: 4px;
@@ -18,6 +20,12 @@
 }
 .navlink{
   color: white;
+}
+.navitem active{
+  color:black;
+}
+#navbar{
+  width: 100%;
 }
 
 #asdndz-image_image__icon-container {
