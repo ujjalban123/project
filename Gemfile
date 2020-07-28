@@ -60,7 +60,7 @@ gem 'mini_magick', '~> 4.8'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'wdm', '~> 0.1.1'
+
 
 gem 'yarn', '~> 0.1.1'
 
