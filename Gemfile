@@ -34,6 +34,8 @@ gem 'execjs'
 
 gem 'sprockets', '~> 3.5', '>= 3.5.2'
 
+gem 'sprockets-rails', '2.3.3'
+
 
 gem "acts_as_follower", github: "tcocca/acts_as_follower"
 
@@ -55,6 +57,7 @@ gem 'mini_magick', '~> 4.8'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
 
 
 
