@@ -62,10 +62,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 
 
-gem 'yarn', '~> 0.1.1'
 
 
-gem 'optimist', '~> 3.0', '>= 3.0.1'
+
 
 
 
