@@ -64,7 +64,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 
 
-
+group :assets do
+         gem 'turbo-sprockets-rails3'
+ end
 
 
 

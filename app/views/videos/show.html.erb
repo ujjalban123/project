@@ -2,25 +2,13 @@
 <meta charset="utf-8" name="viewport" content= "width=device-width, initial-scale=1.0">
 <style>
   video{
-     bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
+    position: absolute;
+    width: 100%;
   }
 </style>
 <div class="row">
   <div class="col-md-9">
-    <div class="card">
-      <div class="card-body p-2">
-      <video>
-          <source src="url_for(@video.clip)"  class='d-block w-100'>
-      </video>
-      </div>
-    </div>
-  </div>
-      <div class="bg-muted"><%= link_to @video.user.full_name, profile_path(@video.user.username) %></div>
+    <div class="bg-muted"><%= link_to @video.user.username, profile_path(@video.user.username) %></div>
            <%= video_tag url_for(@video.clip), :size => "320x240", :controls => true %>
 
     <p class="border-top mt-3 py-2">
