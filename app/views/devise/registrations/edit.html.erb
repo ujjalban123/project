@@ -4,10 +4,23 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   
- <!--div class="field">
+ <div class="form-group">
+  <div class="row">
+    <div class="col-sm-4">
+      <% if user.avatar.attached? %>
+         <%= image_tag resource.avatar.variant(resize: "100*100!"), class:"rounded-circle" %>
+       <% else %>
+         <%= image_tag gravatar_imager_url(current_user.email,size: 40), height:40,width: 40, class: "rounded-circle" %>
+      <% end %>
+    </div>
+
+  <div class="col-sm-4">      
     <%= f.label :add_your_profile_picture %>
     <%= f.file_field :avatar %>
-  </div-->
+  </div>
+ </div>
+ </div>
+
  
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

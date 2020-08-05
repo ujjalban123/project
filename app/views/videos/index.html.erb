@@ -1,39 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-   <meta charset="utf-8" name="viewport" content= "width=device-width, initial-scale=1.0">
+   <meta charset="utf-8" name="viewport" video= "width=device-width, initial-scale=1.0">
+   <%= react_component("Like") %>
 </head>
+<style>
+ .liked {
+    color: blue;
+  }
+</style>
   <body>
  <div class="container">
    
   <% @video.each do |video| %>
-         <div class="bg-muted"><%= link_to video.user.username, profile_path(video.user.username) %></div>
-         <div class="row">
-             <div class="col-xs-12 col-md-6">
-            <%= video_tag url_for(video.clip), :size => "320x240", :controls => true %>  
-       </div>
-     </div>
-            
-        <% if user_signed_in? %>
-           <% if current_user.liked? video %>
+             <%# if user.avatar.attached? %>
+               <%# image_tag resource.avatar.variant(resize: "100*100!"), class:"rounded-circle" %>
+             <%# end %>
+            <div class="bg-muted"><%= link_to video.user.username, profile_path(video.user.username) %></div>
+            <%= video_tag(url_for(video.clip), style:'width:100%;height:auto', controls: '') %> 
+              <%= video.description %>
+            <% if user_signed_in? %>       
+             <% if current_user.liked? video %>
                 <%= button_to "Dislike", dislike_video_path(video), class: 'vote', method: :put, remote: true, data: { toggle_text: 'Like', toggle_href: like_video_path(video), id: video.id } %>
-          <% else %>
+            <% else %>
                 <%= button_to "Like", like_video_path(video), class: 'vote', method: :put, remote: true, data: { toggle_text: 'Dislike', toggle_href: dislike_video_path(video), id: video.id } %>
-           <% end %>
-        <% end %>
-           <p> <span class="votes-count" data-id="<%= video.id %>">
-           	   <%= video.get_likes.size %> likes </p>
-           	 </span>  
-       <br>     
-        <p><%= video.description %></p>
-          <p><%= time_ago_in_words video.created_at %> ago</p>          
             <% end %>
-</div>
-</div>
-</div>
-</p>
-</div>
-</div>
+          <% end %>     
+           <span class="votes-count" data-id="<%= video.id %>"><%= video.get_likes.size %> likes</span>    
+          <p><%= time_ago_in_words video.created_at %> ago</p>  
+<% end %>
 </div>
 </body>
 </html>

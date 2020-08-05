@@ -1,0 +1,6 @@
+<% if current_user.liked? video %>
+ document.getElementsByClassName('like-btn')[0].className = "like-btn liked";
+<% else %>
+ document.getElementsByClassName('like-btn')[0].className = "like-btn";
+<% end %>
+document.getElementsByClassName('likes-count')[0].innerHTML="<%= video.get_upvotes.size %>";

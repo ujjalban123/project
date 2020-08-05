@@ -2,9 +2,9 @@
  <div class="container">
  <div class="row">
  <div class="col-8">
-  
   <h2><%= @user.username%></h2>
-  <p><%= @user.bio %></p><br>
+  <h3><%= @user.full_name%></h3>
+  <%= @user.bio %><br>
   <% if current_user.following?(@user)==false %>
      <%= link_to "Follow", follow_user_path(@user),class: "btn btn-primary" %>
   <% else %>

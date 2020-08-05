@@ -71,6 +71,10 @@ GEM
     acts_as_votable (0.12.1)
     autoprefixer-rails (9.8.5)
       execjs
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     bcrypt (3.1.15)
     bindex (0.8.1)
     bootsnap (1.4.7)
@@ -92,6 +96,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.6)
+    connection_pool (2.2.3)
     crass (1.0.6)
     devise (4.7.2)
       bcrypt (~> 3.0)
@@ -114,6 +119,7 @@ GEM
     ffi (1.13.1-x64-mingw32)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gravatar_image_tag (1.2.0)
     hashie (4.1.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
@@ -193,6 +199,12 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    react-rails (2.6.1)
+      babel-transpiler (>= 0.7.0)
+      connection_pool
+      execjs
+      railties (>= 3.2)
+      tilt
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -284,6 +296,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   execjs
+  gravatar_image_tag (~> 1.2)
   image_processing (~> 1.10, >= 1.10.2)
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3, >= 4.3.3)
@@ -293,6 +306,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 6.0, >= 6.0.3.2)
   rails_12factor (~> 0.0.3)
+  react-rails (~> 2.6, >= 2.6.1)
   sass-rails (~> 5.0)
   searchkick (~> 4.2, >= 4.2.1)
   spring

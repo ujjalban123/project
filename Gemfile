@@ -60,7 +60,9 @@ gem 'mini_magick', '~> 4.8'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'react-rails', '~> 2.6', '>= 2.6.1'
 
+gem 'gravatar_image_tag', '~> 1.2'
 
 
 
@@ -108,6 +110,9 @@ gem 'devise'
 gem 'image_processing', '~> 1.10', '>= 1.10.2'
 
 gem 'webpacker', '~> 4.2', '>= 4.2.2'
+
+
+
 
 gem 'active_storage_drag_and_drop', '~> 1.1'
 

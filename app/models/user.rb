@@ -27,7 +27,9 @@ class User < ApplicationRecord
 
   acts_as_follower
 
- def search_data
+ 
+
+  def search_data
   {
     first_name: first_name,
     last_name: last_name

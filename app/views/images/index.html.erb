@@ -1,13 +1,14 @@
-<link rel="stylesheet" type="text/css" href="assets/stylesheet/image.css">
-<!-- Latest compiled and minified CSS -->
-
-<meta charset="utf-8" name="viewport"content= "width=device-width, initial-scale=1.0"> 
+<!DOCTYPE html>
+<html>
+  <head>
+   <meta charset="utf-8" name="viewport" video= "width=device-width, initial-scale=1.0">
+</head>
+<body>
  <div class="container">
-   <div class="row">
-   	<div class="col-5">
   <% @image.each do |image| %>
-      <div class="bg-muted"><%= link_to image.user.full_name, profile_path(image.user.username) %></div>
-        <%= image_tag image.image, class: "img img-fluid" %>
+      <div class="bg-muted"><%= link_to image.user.username, profile_path(image.user.username) %></div>
+        <%= image_tag(image.image, style:'width:100%;height:auto') %>
+         <%= image.description %>
           <% if user_signed_in? %>
            <% if current_user.liked? image %>
                 <%= button_to "Dislike", dislike_image_path(image), class: 'vote', method: :put, remote: true, data: { toggle_text: 'Like', toggle_href: like_image_path(image), id: image.id } %>
@@ -15,37 +16,13 @@
                 <%= button_to "Like", like_image_path(image), class: 'vote', method: :put, remote: true, data: { toggle_text: 'Dislike', toggle_href: dislike_image_path(image), id: image.id } %>
            <% end %>
         <% end %>
-           <p> <span class="votes-count" data-id="<%= image.id %>">
-           	   <%= image.get_likes.size %> likes </p>
-           	 </span>  
-       <br>     
-            <p><%= image.description %></p>
-         	<p><%= time_ago_in_words image.created_at %> ago</p>         	
-       	    <% end %>
+           <span class="votes-count" data-id="<%= image.id %>"><%= image.get_likes.size %> likes </span>      
+    <p><%= time_ago_in_words image.created_at %> ago</p>
+  <% end %>
 </div>
-</div>
-</div>
-<script type="text/javascript">
-  
-$(document).on 'ajax:success', 'a.vote', (status,data,xhr)->
-  
-  $(".votes-count[data-id=#{data.id}]").text data.count
-  return
-
-  $(document).on 'ajax:success', 'a.vote', (status,data,xhr)->
-  
-  $(".votes-count[data-id=#{data.id}]").text data.count
+</body>
+</html>
 
 
-  $("a.vote[data-id=#{data.id}]").each ->
-    $a = $(this)
-    href = $a.attr 'href'
-    text = $a.text()
-    $a.text($a.data('toggle-text')).attr 'href', $a.data('toggle-href')
-    $a.data('toggle-text', text).data 'toggle-href', href
-    return
 
-  return
-
-</script>
 

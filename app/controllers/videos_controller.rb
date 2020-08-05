@@ -1,7 +1,8 @@
 class VideosController < ApplicationController
  
-  # GET /videos
-  # GET /videos.json
+  before_action :authenticate_user!, only: [:like]
+  before_action :set_video, only: [:show, :like]
+
   def index
     @video = Video.order(cached_votes_score: :desc)
   end
@@ -9,7 +10,6 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
-    @video=Video.find(params[:id])
   end
 
   # GET /videos/new
@@ -17,25 +17,33 @@ class VideosController < ApplicationController
     @video = Video.new
   end
 
+  
   def like
+  @video = Video.find(params[:id])
+  @video.liked_by current_user
+
+  if request.xhr?
+    render json: { count: @video.get_likes.size, id: params[:id] }
+  else
+     redirect_to @video
+  end
+end
+
+
+  def dislike
     @video = Video.find(params[:id])
-    @video.liked_by current_user
-    if request.xhr?
+    @video.disliked_by current_user
+
+
+  if request.xhr?
      render json: { count: @video.get_likes.size, id: params[:id] }
-   else
+  else
     redirect_to @video
   end
 end
 
-def dislike
-    @video = Video.find(params[:id])
-    @video.disliked_by current_user
-    if request.xhr?
-     head json: { count: @video.get_likes.size, id: params[:id] }
-   else
-    redirect_to @video
-  end
-end
+
+
   def create
     @video = current_user.videos.build(video_params)
 
@@ -66,7 +74,7 @@ end
     @video.destroy
     respond_to do |format|
       format.html { redirect_to videos_url, notice: 'Video was successfully destroyed.' }
-      format.json { head :no_content }
+      format.json { head :no_video }
     end
   end
 
@@ -75,5 +83,9 @@ end
     # Only allow a list of trusted parameters through.
     def video_params
       params.require(:video).permit(:description,:clip )
+    end
+
+    def set_video
+      @video=Video.find(params[:id])
     end
 end

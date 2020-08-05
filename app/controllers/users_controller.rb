@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  def show
+   def index
+     @user=User.all
+ end
+
+    def show
     @user = User.find_by(username: params[:username])
     @image= @user.images.order(created_at: :desc)
   end
@@ -22,8 +26,10 @@ class UsersController < ApplicationController
   end
 
   def search
-   @users = User.search(params.fetch(:q, "*"))
- end
+    @users=User.all.where("username LIKE ? OR first_name LIKE ? OR last_name LIKE ?",
+      "%"+params[:search]+"%","%"+params[:search]+"%","%"+params[:search]+"%")
+  end  
+  
 
  def follow
   @user = User.find(params[:id])
@@ -50,10 +56,11 @@ def unfollow
     flash[:error] = "You must <a href='/users/sign_in'>login</a> to unfollow @user.full_name"
   end
 end
+
    	
   private
 
   def user_params
-    params.require(:user).permit(:profile_pic,:gender,:bio,:phone)
+    params.require(:user).permit(:profile_pic,:gender,:bio,:phone,:search)
   end 
 end

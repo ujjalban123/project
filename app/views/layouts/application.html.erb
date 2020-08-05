@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
 <meta charset="utf-8" name="viewport" content= "width=device-width, initial-scale=1.0">
 <style>
   li{
@@ -33,17 +34,17 @@
             <%= link_to "Photos", images_path, class: 'nav-link' %>
           </li>
           <li>
-            <%= link_to "Post image", upload_path, class: 'nav-link' %>
+            <%= link_to "Post photo", upload_path, class: 'nav-link' %>
           </li>
           <li>
             <%= link_to "Post video", new_video_path, class: 'nav-link' %>
           </li>
          </ul>    
-            <%= form_tag search_users_path do %>
-            <%= text_field_tag :q, nil, placeholder: "Search people to follow" %>
-             <%= submit_tag "Search",class: "btn btn-primary" %> 
-             <% end %>
-
+            <form class="form-inline my-2 my-g-0" action="/search">
+              <input name="search" type="text" placeholder="Search for users to follow" aria-label="Search">
+               <button class="btn btn-primary" type="submit"> Search</button>
+              </form>
+              
              <ul class="nav navbar-nav navbar-right">
               <li>
                 <%= link_to "Your account", profile_path(current_user.username), class: 'nav-link' %>
@@ -57,7 +58,8 @@
               <li>
                       <%= link_to "About Us", home_path, class: 'nav-link' %>
                </li>  
-          </ul>  
+          </ul> 
+        </div> 
      <% else %>
            <ul class="nav navbar-nav navbar-right">
               <li>
@@ -70,8 +72,7 @@
                   <%= link_to "About Us", home_path, class: 'nav-link',style:"color: white" %>
                 </li>  
               </ul>
-            <% end %>
-         </div>      
+            <% end %>     
        </nav>
 
          

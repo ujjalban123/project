@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   end
 end
 
-post 'users/search' => 'users#search', as: 'search_users'
+get'search',to: 'users#search'
 
 resources :images do
   member do
