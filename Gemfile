@@ -62,12 +62,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'react-rails', '~> 2.6', '>= 2.6.1'
 
-gem 'gravatar_image_tag', '~> 1.2'
+
 
 
 
 group :assets do
-         gem 'turbo-sprockets-rails3'
+  gem 'turbo-sprockets-rails3'
  end
 
 
@@ -82,17 +82,19 @@ group :development do
   
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  gem 'sqlite3'
+
 
   gem 'byebug'
 
   gem 'bindex', '~> 0.8.1'
 
+  gem 'sqlite3', '~> 1.4', '>= 1.4.2'
+
 end
 
 group :production do
 
-    gem 'pg', '~> 1.2', '>= 1.2.3'
+   gem 'pg', '~> 1.2', '>= 1.2.3'
 
 	gem 'rails_12factor', '~> 0.0.3'
 
@@ -112,7 +114,9 @@ gem 'image_processing', '~> 1.10', '>= 1.10.2'
 gem 'webpacker', '~> 4.2', '>= 4.2.2'
 
 
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 
+gem 'font-awesome-sass', '~> 5.13.0'
 
 gem 'active_storage_drag_and_drop', '~> 1.1'
 

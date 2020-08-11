@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
  
+  resources :devises
+  devise_for :edits
   devise_for :users
   
   root to: 'pages#home'
@@ -36,14 +38,12 @@ get'search',to: 'users#search'
 resources :images do
   member do
     put "like" => "images#like"
-    put "dislike" => "images#dislike"
   end
 end
 
 resources :videos do
   member do
     put "like" => "videos#like"
-    put "dislike" => "videos#dislike"
   end
 end
 

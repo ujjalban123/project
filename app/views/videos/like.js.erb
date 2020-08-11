@@ -1,6 +1,7 @@
+
 <% if current_user.liked? video %>
- document.getElementsByClassName('like-btn')[0].className = "like-btn liked";
+ $('.like-btn').addClass('liked');
 <% else %>
- document.getElementsByClassName('like-btn')[0].className = "like-btn";
+ $('.like-btn').addClass('like-btn');
 <% end %>
-document.getElementsByClassName('likes-count')[0].innerHTML="<%= video.get_upvotes.size %>";
+  $('.likes-count').html("<%=video.get_upvotes.size %> likes");

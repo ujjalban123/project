@@ -1,4 +1,8 @@
 class ImagesController < ApplicationController
+  before_action :authenticate_user!, only: [:like]
+  before_action :set_image, only: [:show, :like]
+  respond_to :js, :json, :html
+
   def index
     @image= Image.where(user_id: current_user.all_following.pluck(:id))
     
@@ -21,28 +25,24 @@ class ImagesController < ApplicationController
     end
   end
 def like
-    @image = Image.find(params[:id])
-    @image.liked_by current_user
-    if request.xhr?
-     render json: { count: @image.get_likes.size, id: params[:id] }
-   else
-    redirect_to @image
-  end
+    
+  def like
+   if !current_user.liked? @image
+      @image.liked_by current_user
+   elsif current_user.liked? @image
+      @image.unliked_by current_user
+   end   
+end
 end
 
-def dislike
-    @image = Image.find(params[:id])
-    @image.disliked_by current_user
-    if request.xhr?
-     head json: { count: @image.get_likes.size, id: params[:id] }
-   else
-    redirect_to @image
-  end
-end
 
   private
 
   def image_params
     params.require(:image).permit(:image, :description)
   end
+
+  def set_image
+      @image=Image.find(params[:id])
+   end   
 end

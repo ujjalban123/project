@@ -2,6 +2,7 @@ class VideosController < ApplicationController
  
   before_action :authenticate_user!, only: [:like]
   before_action :set_video, only: [:show, :like]
+  respond_to :js, :json, :html
 
   def index
     @video = Video.order(cached_votes_score: :desc)
@@ -19,27 +20,11 @@ class VideosController < ApplicationController
 
   
   def like
-  @video = Video.find(params[:id])
-  @video.liked_by current_user
-
-  if request.xhr?
-    render json: { count: @video.get_likes.size, id: params[:id] }
-  else
-     redirect_to @video
-  end
-end
-
-
-  def dislike
-    @video = Video.find(params[:id])
-    @video.disliked_by current_user
-
-
-  if request.xhr?
-     render json: { count: @video.get_likes.size, id: params[:id] }
-  else
-    redirect_to @video
-  end
+   if !current_user.liked? @video
+      @video.liked_by current_user
+   elsif current_user.liked? @video
+      @video.unliked_by current_user
+   end   
 end
 
 

@@ -8,16 +8,13 @@
   <% @image.each do |image| %>
       <div class="bg-muted"><%= link_to image.user.username, profile_path(image.user.username) %></div>
         <%= image_tag(image.image, style:'width:100%;height:auto') %>
-         <%= image.description %>
-          <% if user_signed_in? %>
-           <% if current_user.liked? image %>
-                <%= button_to "Dislike", dislike_image_path(image), class: 'vote', method: :put, remote: true, data: { toggle_text: 'Like', toggle_href: like_image_path(image), id: image.id } %>
-          <% else %>
-                <%= button_to "Like", like_image_path(image), class: 'vote', method: :put, remote: true, data: { toggle_text: 'Dislike', toggle_href: dislike_image_path(image), id: image.id } %>
-           <% end %>
-        <% end %>
-           <span class="votes-count" data-id="<%= image.id %>"><%= image.get_likes.size %> likes </span>      
-    <p><%= time_ago_in_words image.created_at %> ago</p>
+         <%= image.description %><br>
+         <%= time_ago_in_words image.created_at %> ago<br>
+           <%= link_to like_image_path(image), class:"like-btn", method: :put,remote: true do%>
+                    <span><i class="fa fa-thumbs-up fa-2x"></i></span>
+               <% end %> 
+           <span class="likes-count" data-id="<%= image.id %>"><%= image.get_likes.size %> likes </span>      
+    <p></p>
   <% end %>
 </div>
 </body>

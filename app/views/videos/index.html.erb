@@ -16,18 +16,14 @@
              <%# if user.avatar.attached? %>
                <%# image_tag resource.avatar.variant(resize: "100*100!"), class:"rounded-circle" %>
              <%# end %>
-            <div class="bg-muted"><%= link_to video.user.username, profile_path(video.user.username) %></div>
-            <%= video_tag(url_for(video.clip), style:'width:100%;height:auto', controls: '') %> 
-              <%= video.description %>
-            <% if user_signed_in? %>       
-             <% if current_user.liked? video %>
-                <%= button_to "Dislike", dislike_video_path(video), class: 'vote', method: :put, remote: true, data: { toggle_text: 'Like', toggle_href: like_video_path(video), id: video.id } %>
-            <% else %>
-                <%= button_to "Like", like_video_path(video), class: 'vote', method: :put, remote: true, data: { toggle_text: 'Dislike', toggle_href: dislike_video_path(video), id: video.id } %>
-            <% end %>
-          <% end %>     
-           <span class="votes-count" data-id="<%= video.id %>"><%= video.get_likes.size %> likes</span>    
-          <p><%= time_ago_in_words video.created_at %> ago</p>  
+          <%= link_to video.user.username, profile_path(video.user.username) %>
+            <%= video_tag(url_for(video.clip), style:'max-width:100%;height:auto;object-fit: fill', controls: '',controlsList:"nodownload") %> 
+              <%= video.description %><br>   
+              <%= time_ago_in_words video.created_at %> ago<br> 
+               <%= link_to like_video_path(video), class:"like-btn", method: :put,remote: true do%>
+                    <span><i class="fa fa-thumbs-up fa-2x"></i></span>
+               <% end %>                    
+           <span class="likes-count" data-id="<%= video.id %>"><%= video.get_likes.size %> likes</span><br>    
 <% end %>
 </div>
 </body>
