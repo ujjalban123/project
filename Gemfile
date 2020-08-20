@@ -90,6 +90,14 @@ group :development do
 
   gem 'sqlite3', '~> 1.4', '>= 1.4.2'
 
+  gem 'capistrano', '~> 3.11'
+
+  gem 'capistrano-rails', '~> 1.4'
+
+  gem 'capistrano-passenger', '~> 0.2.0'
+  
+  gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
+
 end
 
 group :production do
@@ -105,7 +113,6 @@ end
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 
