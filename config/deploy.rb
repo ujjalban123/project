@@ -26,6 +26,11 @@ set :repo_url, "https://github.com/ujjalban123/project.git"
 # Default value for linked_dirs is []
  append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
 
+ set :default_env, {
+  "RAILS_ENV" => "production",
+  "RAILS_MASTER_KEY" => ENV["29ea239c05a84c7a0571e585d490b743"]
+}
+
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 

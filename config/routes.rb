@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   
  
   resources :devises
-  devise_for :edits
   devise_for :users
   
   root to: 'pages#home'

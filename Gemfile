@@ -111,7 +111,10 @@ end
 
 
 
-
+platforms 'mswin', 'mingw', 'mswin64', 'x64_mingw' do
+  gem 'tzinfo-data', '~> 1.2020', '>= 1.2020.1'
+end
+  
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 
 gem 'devise'
