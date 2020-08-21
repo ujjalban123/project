@@ -12,4 +12,3 @@ class ActiveStorageController::BaseController < ApplicationController::Base
 
   end
 end
-end
