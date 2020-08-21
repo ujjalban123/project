@@ -1,4 +1,4 @@
-class ActiveStorageController::BaseController < ApplicationController::Base
+class Admin::ActiveStorageController::BaseController < ApplicationController::Base
 	before_action :count_method!
 include ActiveStorage::SetCurrent
 
