@@ -73,7 +73,7 @@ group :assets do
 
 
 
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+group :development do # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '~> 4.0', '>= 4.0.3'
 
   gem 'listen', '>= 3.0.5', '< 3.2'
@@ -82,13 +82,13 @@ group :assets do
   
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-
+  gem 'tzinfo-data', '~> 1.2020', '>= 1.2020.1'
 
   gem 'byebug'
 
   gem 'bindex', '~> 0.8.1'
 
- 
+ end 
 
   gem 'capistrano', '~> 3.11'
 
@@ -111,9 +111,7 @@ end
 
 
 
-platforms 'mswin', 'mingw', 'mswin64', 'x64_mingw' do
-  gem 'tzinfo-data', '~> 1.2020', '>= 1.2020.1'
-end
+
   
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 
