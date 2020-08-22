@@ -101,20 +101,11 @@ group :development do # Access an interactive console on exception pages or by c
  gem 'net-ssh', '~> 6.1'
 
 group :production do
-
-   gem 'pg', '~> 1.2', '>= 1.2.3'
-
 	gem 'rails_12factor', '~> 0.0.3'
 
 end
 
-
-
-
-
-  
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-
+# Windows does not include zoneinfo files, so bundle the tzinfo-data ge
 gem 'devise'
 
 gem 'image_processing', '~> 1.10', '>= 1.10.2'
