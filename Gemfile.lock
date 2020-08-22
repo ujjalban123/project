@@ -275,7 +275,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    sqlite3 (1.4.2)
     sshkit (1.21.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -353,7 +352,6 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sprockets (~> 3.5, >= 3.5.2)
   sprockets-rails (= 2.3.3)
-  sqlite3 (~> 1.4, >= 1.4.2)
   tabs_on_rails
   turbo-sprockets-rails3
   turbolinks (~> 5)
