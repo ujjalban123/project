@@ -305,6 +305,8 @@ GEM
 
 PLATFORMS
   x64-mingw32
+  ruby
+  x86_64-linux
 
 DEPENDENCIES
   active_storage_drag_and_drop (~> 1.1)
