@@ -88,7 +88,7 @@ group :development do
 
   gem 'bindex', '~> 0.8.1'
 
-  gem 'sqlite3', '~> 1.4', '>= 1.4.2'
+ 
 
   gem 'capistrano', '~> 3.11'
 
