@@ -54,6 +54,8 @@ gem 'searchkick', '~> 4.2', '>= 4.2.1'
 gem 'mini_magick', '~> 4.8'
 
 
+gem 'rack', '~> 2.2', '>= 2.2.3'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
