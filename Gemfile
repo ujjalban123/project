@@ -21,7 +21,6 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
 gem "tabs_on_rails"
 
-gem 'concurrent-ruby', '~> 1.1', '>= 1.1.7'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
