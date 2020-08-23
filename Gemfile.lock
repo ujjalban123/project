@@ -186,6 +186,8 @@ GEM
     passenger (5.3.7)
       rack
       rake (>= 0.8.1)
+    pg (1.2.3)
+    pg (1.2.3-x64-mingw32)
     popper_js (1.16.0)
     puma (3.12.6)
     rack (2.2.3)
@@ -276,6 +278,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    sqlite3 (1.4.2)
     sshkit (1.21.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -344,6 +347,7 @@ DEPENDENCIES
   mini_magick (~> 4.8)
   net-ssh (~> 6.1)
   passenger (~> 5.0, >= 5.0.30)
+  pg (~> 1.2, >= 1.2.3)
   puma (~> 3.11)
   rack (~> 2.2, >= 2.2.3)
   rails (~> 6.0, >= 6.0.3.2)
@@ -355,6 +359,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sprockets (~> 3.5, >= 3.5.2)
   sprockets-rails (= 2.3.3)
+  sqlite3 (~> 1.4, >= 1.4.2)
   tabs_on_rails
   turbo-sprockets-rails3
   turbolinks (~> 5)

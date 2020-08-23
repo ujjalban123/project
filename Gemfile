@@ -5,6 +5,8 @@ ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0', '>= 6.0.3.2'
+
+gem 'sqlite3', '~> 1.4', '>= 1.4.2'
 # Use sqlite3 as the database for Active Record
 
 gem 'activemodel', '~> 6.0', '>= 6.0.3.2'
@@ -20,6 +22,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
 gem "tabs_on_rails"
+
+gem 'pg', '~> 1.2', '>= 1.2.3'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
