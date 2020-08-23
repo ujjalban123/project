@@ -114,6 +114,8 @@ gem 'image_processing', '~> 1.10', '>= 1.10.2'
 
 gem 'webpacker', '~> 4.2', '>= 4.2.2'
 
+gem 'passenger', '~> 5.0', '>= 5.0.30'
+
 
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 
