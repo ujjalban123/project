@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+
 ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -38,6 +39,8 @@ gem 'bootstrap-sass'
 
 gem 'execjs'
 
+gem 'therubyracer', '~> 0.12.3'
+
 gem 'sprockets', '~> 3.5', '>= 3.5.2'
 
 gem 'sprockets-rails', '2.3.3'
@@ -60,6 +63,8 @@ gem 'mini_magick', '~> 4.8'
 
 gem 'rack', '~> 2.2', '>= 2.2.3'
 
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -67,7 +72,6 @@ gem 'rack', '~> 2.2', '>= 2.2.3'
 gem 'bootsnap', '>= 1.1.0'
 
 gem 'react-rails', '~> 2.6', '>= 2.6.1'
-
 
 
 
@@ -107,7 +111,7 @@ group :development do # Access an interactive console on exception pages or by c
  gem 'net-ssh', '~> 6.1'
 
 group :production do
-	gem 'rails_12factor', '~> 0.0.3'
+  gem 'rails_12factor', '~> 0.0.3'
 
 end
 
