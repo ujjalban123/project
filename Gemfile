@@ -1,16 +1,20 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+ruby '~>2.5.8'
 
-ruby '2.6.6'
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rail788'
 gem 'rails', '~> 6.0', '>= 6.0.3.2'
 
 gem 'sqlite3', '~> 1.4', '>= 1.4.2'
 # Use sqlite3 as the database for Active Record
 
 gem 'activemodel', '~> 6.0', '>= 6.0.3.2'
+
+
+
+
+gem "appengine", "~> 0.4.1"
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -22,7 +26,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
-gem "tabs_on_rails"
+gem 'tabs_on_rails'
 
 gem 'pg', '~> 1.2', '>= 1.2.3'
 
@@ -39,14 +43,15 @@ gem 'bootstrap-sass'
 
 gem 'execjs'
 
-gem 'therubyracer', '~> 0.12.3'
+gem "google-cloud-storage", "~> 1.11", require: false
+
 
 gem 'sprockets', '~> 3.5', '>= 3.5.2'
 
 gem 'sprockets-rails', '2.3.3'
 
-
 gem "acts_as_follower", github: "tcocca/acts_as_follower"
+
 
 gem 'acts_as_votable', '~> 0.12.1'
 
@@ -110,6 +115,8 @@ group :development do # Access an interactive console on exception pages or by c
 
  gem 'net-ssh', '~> 6.1'
 
+
+
 group :production do
   gem 'rails_12factor', '~> 0.0.3'
 
@@ -132,4 +139,9 @@ gem 'font-awesome-sass', '~> 5.13.0'
 gem 'active_storage_drag_and_drop', '~> 1.1'
 
 gem 'active_storage_validations'
+
+
+
+
+
 

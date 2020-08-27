@@ -18,8 +18,14 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.postgresql
+  database: db/test.mysql2
 
 production:
-  <<: *default
-  database: db/development.postgresql
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  username: ujjal
+  password: barbil123
+  database: thailava
+  host:   /cloudsql/ujjal-287301:asia-south1:ujjal123

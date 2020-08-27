@@ -1,8 +1,27 @@
 runtime: ruby25
 env: standard
 
+
+instance_class: F2
+
 automatic_scaling:
  min_instances: 0
  max_instances: 1 
+
+handlers:
+# All URLs beginning with /stylesheets are treated as paths to
+# static files in the stylesheets/ directory.
+- url: /javascripts
+  static_dir: app/assets/javascripts/application.js
+
+- url: /stylesheets
+  static_dir: app/assets/stylesheets/application.scss
+
+env_variables:
+  SECRET_KEY_BASE: ebee68ab75de0c93c424ab46f7aad873cfd2de1dfc679c60ec098b04df038531ddda1363556cc536c24c3f0f6c22a3b2db298fe4fe8b8a40e5eb06e9c33dde9f
+  GOOGLE_CLOUD_STORAGE_BUCKET: ujjal-287301.appspot.com
+
+beta_settings:
+  cloud_sql_instances: ujjal-287301:asia-south1:ujjal123
 
 
